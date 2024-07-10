@@ -8,35 +8,46 @@
 </head>
 <body>
 <div class="container">
-<img class="image" src="image6.png">
-<img class="image" src="image5.png">
-<img class="image" src="image4.png">
-<img class="image" src="image3.png">
-<img class="image" src="image2.png">
 <img class="image" src="image1.png">
+<img class="image" src="image2.png">
+<img class="image" src="image3.png">
+<img class="image" src="image4.png">
+<img class="image" src="image5.png">
+<img class="image" src="image6.png">
 </div>
 <script>
-    let images = document.getElementsByClassName("image")
-    function ondrag()
-    {
-        let i = 0;
-        for(i=0; i < images.length; i++)
+let images = document.getElementsByClassName("image");
+
+    function ondrag(event, index) {
+        event.preventDefault(); // Prevent default behavior
+        let currentImage = event.target;
+        currentImage.style.visibility = "hidden";
+
+        if (index < images.length - 1) 
         {
-            images[i].style.visibility = "hidden"
+            images[index + 1].style.visibility = "visible";
         }
     }
-    function ontouchstart(e) 
+
+    function createOndragHandler(index) 
     {
-        e.preventDefault(); // Prevent default touch behavior
-        ondrag();
-    }
-    let m = 0;
-    for (m=0; m < images.length; m++)
-    {
-        images[m].addEventListener("dragstart", ondrag)
-        images[m].addEventListener("touchstart", ontouchstart);
+        return function(event) 
+        {
+            ondrag(event, index);
+        }
     }
 
+    // Initialize: Show only the first image
+    for (let i = 1; i < images.length; i++)
+    {
+        images[i].style.visibility = "hidden";
+    }
+
+    for (let m = 0; m < images.length; m++) 
+    {
+        images[m].addEventListener("dragstart", createOndragHandler(m));
+        images[m].addEventListener("touchstart", createOndragHandler(m));
+    }
 </script>
 </body>
 </html>
