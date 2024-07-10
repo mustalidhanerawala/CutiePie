@@ -1,0 +1,26 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body
+{
+   background-color: pink;
+}
+.container
+{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    align-items: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.image
+{
+    position: absolute;
+    width: 80vw;
+    height: auto;
+}

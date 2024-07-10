@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="love.css">
+    <title>Project Kausar</title>
+</head>
+<body>
+<div class="container">
+<img class="image" src="image6.png">
+<img class="image" src="image5.png">
+<img class="image" src="image4.png">
+<img class="image" src="image3.png">
+<img class="image" src="image2.png">
+<img class="image" src="image1.png">
+</div>
+<script>
+    let images = document.getElementsByClassName("image")
+    function ondrag()
+    {
+        let i = 0;
+        for(i=0; i < images.length; i++)
+        {
+            images[i].style.visibility = "hidden"
+        }
+    }
+    let m = 0;
+    for (m=0; m < images.length; m++)
+    {
+        images[m].addEventListener("dragstart", ondrag)
+    }
+
+</script>
+</body>
+</html>
