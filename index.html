@@ -25,10 +25,16 @@
             images[i].style.visibility = "hidden"
         }
     }
+    function ontouchstart(e) 
+    {
+        e.preventDefault(); // Prevent default touch behavior
+        ondrag();
+    }
     let m = 0;
     for (m=0; m < images.length; m++)
     {
         images[m].addEventListener("dragstart", ondrag)
+        images[m].addEventListener("touchstart", ontouchstart);
     }
 
 </script>
