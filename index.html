@@ -1,56 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="love.css">
-    <title>Mustali Dhanerawala</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mustali Dhanerawala</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=BJ+Cree:wght@400;500;600;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="container">
-<img class="image" src="image1.png">
-<img class="image" src="image2.png">
-<img class="image" src="Drag and move the paper_20251101_161629_0000.png">
-<img class="image" src="image3.png">
-<img class="image" src="image4.png">
-<!--<img class="image" src="image5.png">-->
-<!-- <img class="image" src="image6.png">-->
 
-<img class="image" src="Drag and move the paper_20251101_161048_0000.png">
-</div>
-<script>
-let images = document.getElementsByClassName("image");
+  <!-- Floating Hearts -->
+  <div id="hearts-container"></div>
 
-    function ondrag(event, index) {
-        event.preventDefault(); // Prevent default behavior
-        let currentImage = event.target;
-        currentImage.style.visibility = "hidden";
+  <!-- Login Box -->
+  <div class="login-box" id="loginBox">
+    <h2>Enter the password 💖</h2>
+    
+    <input 
+      type="text" 
+      id="nameInput" 
+      placeholder="Type here..." 
+      autocomplete="off"
+    />
+    
+    <button id="unlockBtn">Unlock ❤️</button>
+    
+    <p class="hint">Hint: Its your name !</p>
+  </div>
 
-        if (index < images.length - 1) 
-        {
-            images[index + 1].style.visibility = "visible";
-        }
-    }
+  <!-- Success Screen -->
+  <div id="success">
+    <h1>Hey ❤️</h1>
+    <h2>I was waiting for you...</h2>
+    <p>Now something special awaits 💌</p>
+  </div>
 
-    function createOndragHandler(index) 
-    {
-        return function(event) 
-        {
-            ondrag(event, index);
-        }
-    }
-
-    // Initialize: Show only the first image
-    for (let i = 1; i < images.length; i++)
-    {
-        images[i].style.visibility = "hidden";
-    }
-
-    for (let m = 0; m < images.length; m++) 
-    {
-        images[m].addEventListener("dragstart", createOndragHandler(m));
-        images[m].addEventListener("touchstart", createOndragHandler(m));
-    }
-</script>
+  <script src="script.js"></script>
 </body>
 </html>
