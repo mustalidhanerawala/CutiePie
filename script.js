@@ -1,5 +1,5 @@
 // 🔥 CHANGE THIS TO HER NAME
-const correctName = "priya";
+const correctName = "tasneem";
 
 const button = document.getElementById("unlockBtn");
 const input = document.getElementById("nameInput");
@@ -17,10 +17,10 @@ function checkName() {
   const value = input.value.trim().toLowerCase();
 
   if (value === correctName.toLowerCase()) {
-    document.getElementById("loginBox").style.display = "none";
-    document.getElementById("success").style.display = "block";
+  window.location.href = "love.html";
+
   } else {
-    alert("Oops... try again 💔");
+    alert("Oops...sorry can't let you in ⛔");
   }
 }
 
